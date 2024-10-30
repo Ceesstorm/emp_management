@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<h4 class="text-center">Update Truck</h4>
+<br />
+
+<div class="card p-3 bg-body-secondary text-dark w-50 mx-auto fw-bolder">
+    <!-- Ensure the truck ID is passed in the action URL -->
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-2">
+            <label for="day" class="form-label">Day:</label>
+            <input type="text" class="form-control" name="day" value="{{ truck.day }}" />
+        </div>
+        <div class="mb-2">
+            <label for="departure_time" class="form-label">Departure Time:</label>
+            <input type="text" class="form-control" name="departure_time" value="{{ truck.departure_time|time:'H:i' }}" />
+        </div>
+        
+        <div class="mb-2">
+            <label for="tender" class="form-label">Tender:</label>
+            <input type="text" class="form-control" name="tender" value="{{ truck.tender }}" />
+        </div>
+
+        <div class="mb-2">
+            <label for="truck_number" class="form-label">Truck Number:</label>
+            <input type="text" class="form-control" name="truck_number" value="{{ truck.truck_number }}" />
+        </div>
+
+        <div class="mb-2">
+            <label for="origin" class="form-label">Origin:</label>
+            <input type="text" class="form-control" name="origin" value="{{ truck.origin }}" />
+        </div>
+
+        <div class="mb-3">
+            <label for="destination" class="form-label">Destination:</label>
+            <input type="text" class="form-control" name="destination" value="{{ truck.destination }}" />
+        </div>
+
+        <div class="mb-3">
+            <label for="operator" class="form-label">Operator:</label>
+            <input type="text" class="form-control" name="operator" value="{{ truck.operator }}" />
+        </div>
+
+        <div class="mb-3">
+            <label for="phone_number" class="form-label">Contact:</label>
+            <input type="text" class="form-control" name="contact" value="{{ truck.contact }}" />
+        </div>
+
+        {% if error_message %}
+            <div class="alert alert-danger">{{ error_message }}</div>
+        {% endif %}
+
+        <div class="container text-center mt-2">
+            <button type="submit" class="btn btn-sm btn-outline-dark">Update</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

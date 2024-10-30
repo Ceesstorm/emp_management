@@ -1,0 +1,16 @@
+asgiref==3.8.1
+crispy-bootstrap4==2024.10
+crispy-bootstrap5==2024.10
+Django==5.1.2
+django-countries==7.6.1
+django-crispy-forms==2.3
+django-jazzmin==3.0.1
+django-phonenumber-field==8.0.0
+mysql==0.0.3
+mysql-connector==2.2.9
+mysql-connector-python==9.1.0
+mysqlclient==2.2.5
+phonenumbers==8.13.48
+sqlparse==0.5.1
+typing_extensions==4.12.2
+tzdata==2024.2

@@ -1,0 +1,27 @@
+<br>
+<div class="header bg-body-secondary text-dark border border-primary opacity-100 rounded-pill fw-bolder d-flex justify-content-between">
+  <nav class="nav">
+    {% if user.is_authenticated %}
+      <a class="nav-link text-dark " href="{% url 'dashboard' %}">Home</a>
+      <a class="nav-link text-dark" href="{% url 'allemployees' %}">Employees</a>
+      <a class="nav-link text-dark" href="{% url 'alldepartments' %}">Departments</a>
+      <a class="nav-link text-dark" href="{% url 'alltrucks' %}">Trucks</a>
+      <a class="nav-link text-dark" href="#">Roster</a>
+  </nav>
+  <ul class="nav justify-content-end">
+    
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="{% url 'user-logout' %}">Logout</a>
+      </li>
+  </ul>
+  {% else %}
+  <ul class="nav justify-content-end">
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="{% url 'register' %}">Register</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="{% url 'my_login' %}">Login &nbsp; <i class="fa fa-key"></i></a>
+      </li>
+  </ul>
+  {% endif %}
+</div>

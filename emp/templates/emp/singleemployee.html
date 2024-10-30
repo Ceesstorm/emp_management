@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if error_message %}
+<div class="alert alert-danger" role="alert">
+  {{ error_message }}
+</div>
+{% endif %}
+
+<hr>
+    <div class="container">
+    <h4 class="text-center">Single Employee page.</h4>
+    
+    <!--  <a class="btn btn-outline-primary btn-sm" href="{% url 'addemployee' %}">
+        Create a new employee  &nbsp; <i class="fa fa-plus-circle"></i>
+    </a> --> 
+    </div>
+    <hr>
+    <div class="container card border-primary">
+      <br>
+      <h5 class="text-decoration-underline">Employee</h5>
+
+      <div >
+        <table class="table border-primary">
+          <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Employee name</th>
+                <th scope="col">Email</th> 
+                <th scope="col">Phone</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Back</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if singleemp %}
+
+            <tr>
+                <td scope="row">{{ singleemp.id }}</td>
+                <td>{{ singleemp.employeename }}</td>
+                <td>{{ singleemp.email }}</td>
+                <td>{{ singleemp.phone }}</td>
+                <td><a href="{% url 'updateemployee' singleemp.id %}" class="btn btn-sm btn-outline-success">Update</a></td>
+                <td><a href="{% url 'deleteemployee' singleemp.id %}" class="btn btn-sm btn-outline-danger">Delete</a></td>
+                <td><a href="{% url 'allemployees' %}" class="btn btn-sm btn-outline-secondary">Back</a></td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<h4 class="text-center">Add new Truck.</h4>
+<br />
+
+<div class="card p-3 bg-body-secondary border-primary text-dark w-50 mx-auto fw-bolder">
+  <form method = "POST">
+    {% csrf_token %}
+    <div class="mb-2">
+      <label for="exampleInputEmail1" class="form-label">Day:</label>
+      <input type="text" class="form-control border-primary" placeholder="Enter the day" name="day" />
+    </div>
+    <div class="mb-2">
+      <label for="exampleInputEmail1" class="form-label">Departure time:</label>
+      <input type="text" class="form-control border-primary" placeholder="Enter the departure time" name="departure_time" />
+    </div>
+    <div class="mb-2">
+      <label for="exampleInputEmail1" class="form-label">Tender:</label>
+      <input type="text" class="form-control border-primary" placeholder="Enter the tender" name="tender" />
+    </div>
+    <div class="mb-2">
+      <label for="exampleInputEmail1" class="form-label">Truck number:</label>
+      <input type="text" class="form-control border-primary" placeholder="Enter the truck number" name="truck_number" />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Origin:</label>
+      <input
+        type="text" class="form-control border-primary" placeholder="Enter the origin" name="origin" />
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Destination:</label>
+        <input
+          type="text" class="form-control border-primary" placeholder="Enter the destination" name="destination" />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Operator:</label>
+        <input
+          type="text" class="form-control border-primary" placeholder="Enter the operator" name="operator" />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Contact:</label>
+        <input 
+          type="text" class="form-control" name="contact" value="{{ truck.contact }}" />
+      </div>
+    <div class="container text-center mt-2">
+      <button type="submit" class="btn btn-sm btn-outline-dark">Add Truck</button>
+    </div>  
+  </form>
+</div>
+
+{% endblock %}

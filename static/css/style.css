@@ -1,0 +1,9 @@
+.pagination {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.page-item {
+    margin-right: 5px; /* Adds space between each pagination item */
+}

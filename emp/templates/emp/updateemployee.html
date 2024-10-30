@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<h4 class="text-center">Update Employee.</h4>
+<br />
+
+<div class="card p-3 bg-body-secondary text-dark w-50 mx-auto fw-bolder">
+  <form action="/updateemployee/{{singleemp.id}}/" method="POST">
+    {% csrf_token %}
+    <div class="mb-2">
+      <label for="employeename" class="form-label">Full name:</label>
+      <input type="text" class="form-control" name="employeename" value="{{ singleemp.employeename }}" />
+    </div>
+    <div class="mb-2">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" class="form-control" name="email" value="{{ singleemp.email }}" />
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone:</label>
+      <input type="text" class="form-control" name="phone" value="{{ singleemp.phone }}" />
+    </div>
+    <div class="container text-center mt-2">
+      <button type="submit" class="btn btn-sm btn-outline-dark">Update</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

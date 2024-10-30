@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<h4 class="text-center">Update Department.</h4>
+<br />
+
+<div class="card p-3 bg-body-secondary text-dark w-50 mx-auto fw-bolder">
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-2">
+        <label for="department" class="form-label">Department:</label>
+        <input type="text" class="form-control" name="department" value="{{ department.department }}">
+    </div>
+    <div class="mb-2">
+        <label for="building" class="form-label">Building:</label>
+        <input type="text" class="form-control" name="building" value="{{ department.building }}">
+    </div>
+    <div class="mb-2">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" name="email" value="{{ department.email }}">
+    </div>
+    <div class="mb-2">
+        <label for="contact" class="form-label">Contact:</label>
+        <input type="text" class="form-control" name="contact" value="{{ department.contact }}">
+    </div>
+    <button type="submit" class="btn btn-outline-dark">Update Department</button>
+</form>
+
+</div>
+{% endblock %}

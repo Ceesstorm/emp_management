@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <br>
+    <!-- Row for Create Button and Search Bar -->
+    <div class="row mb-3">
+        <hr class="opacity-100">
+        <!-- Create Button (Left) -->
+        <div class="col-md-6">
+            <a class="btn btn-outline-primary" href="{% url 'addemployee' %}">
+                Create a new employee &nbsp; <i class="fa fa-plus-circle"></i>
+            </a>
+        </div>
+
+        <!-- Search Bar (Right) -->
+        <div class="col-md-6 text-right">
+            <form method="GET" class="form-inline">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search employees..." 
+                        class="form-control form-control-sm border-primary" value="{{ search_query }}" 
+                        aria-label="Search employees">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr class="opacity-100">
+
+    <div class="container card border-primary">
+        <br>
+        <h5 class="text-decoration-underline">List of Employees</h5>
+        <br>
+
+        <!-- Display list of employees here -->
+        <table class="table border-primary">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Employee Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for eachemployee in allemployees %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ eachemployee.employeename }}</td>
+                    <td>{{ eachemployee.email }}</td>
+                    <td>{{ eachemployee.phone }}</td>
+                    <td><a href="{% url 'singleemployee' eachemployee.id %}" class="btn btn-sm btn-outline-success">View</a></td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center">No employees available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Dropdown for selecting employees per page -->
+        <form method="GET" class="form-inline mb-3 px-4 justify-content-between">
+            <div class="form-group d-flex align-items-center w-25">
+                <label for="per_page" class="mr-2">Show per page: </label>
+                <select name="per_page" id="per_page" class="form-control form-control-sm border-primary px-2"
+                    onchange="this.form.submit()">
+                    <option value="5" {% if per_page == 5 %}selected{% endif %}>5</option>
+                    <option value="10" {% if per_page == 10 %}selected{% endif %}>10</option>
+                    <option value="15" {% if per_page == 15 %}selected{% endif %}>15</option>
+                    <option value="20" {% if per_page == 20 %}selected{% endif %}>20</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <hr class="opacity-100">
+</div>
+{% endblock %}

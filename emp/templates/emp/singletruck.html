@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if error_message %}
+<div class="alert alert-danger" role="alert">
+  {{ error_message }}
+</div>
+{% endif %}
+
+<hr class="opacity-100">
+    <div class="container">
+    <h4 class="text-center">Single Truck page.</h4>
+    </div>
+    <hr class="opacity-100">
+    <div class="container card border-primary">
+      <br>
+      <h5 class="text-decoration-underline">Truck</h5>
+    <div>
+        <table class="table border-primary">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Day</th>
+                    <th scope="col">Departure Time</th>
+                    <th scope="col">Truck Number</th>
+                    <th scope="col">Origin</th> 
+                    <th scope="col">Destination</th>
+                    <th scope="col">Operator</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">Back</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if singletruck %}
+                <tr>
+                    <td scope="row">{{ singletruck.id }}</td>
+                    <td>{{ singletruck.day }}</td>
+                    <td>{{ singletruck.departure_time|time:"H:i" }}</td>
+                    <td>{{ singletruck.tender }} {{ singletruck.truck_number }}</td>
+                    <td>{{ singletruck.origin }}</td>
+                    <td>{{ singletruck.destination }}</td>
+                    <td>{{ singletruck.operator }}</td>
+                    <td>{{ singletruck.contact }}</td>
+                    <td><a href="{% url 'updatetruck' singletruck.id %}" class="btn btn-sm btn-outline-success">Update</a></td>
+                    <td><a href="{% url 'deletetruck' singletruck.id %}" class="btn btn-sm btn-outline-danger">Delete</a></td>
+                    <td><a href="{% url 'alltrucks' %}" class="btn btn-sm btn-outline-secondary">Back</a></td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
