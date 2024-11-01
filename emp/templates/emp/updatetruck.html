@@ -44,8 +44,29 @@
         </div>
 
         <div class="mb-3">
-            <label for="phone_number" class="form-label">Contact:</label>
-            <input type="text" class="form-control" name="contact" value="{{ truck.contact }}" />
+            <label for="country" class="form-label">Country:</label>
+            <input type="text" class="form-control" name="country" value="{{ truck.country }}" />
+        </div>
+
+        <div class="mb-3">
+            <label for="company" class="form-label">Company:</label>
+            <input type="text" class="form-control" name="company" value="{{ truck.company }}" />
+        </div>
+        <div class="mb-3">
+            <label for="street" class="form-label">Street:</label>
+            <input type="text" class="form-control" name="street" value="{{ truck.street }}" />
+        </div>
+        <div class="mb-3">
+            <label for="postal_code" class="form-label">Postal code:</label>
+            <input type="text" class="form-control" name="postal_code" value="{{ truck.postal_code }}" />
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label">City:</label>
+            <input type="text" class="form-control" name="city" value="{{ truck.city }}" />
+        </div>
+        <div class="mb-3">
+            <label for="phone_number" class="form-label">Phone_number:</label>
+            <input type="text" class="form-control" name="phone_number" value="{{ truck.phone_number }}" />
         </div>
 
         {% if error_message %}

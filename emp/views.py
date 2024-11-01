@@ -251,7 +251,7 @@ def all_trucks(request):
         "sort_order": sort_order,
     })
     
-
+    
 
 @login_required(login_url='my_login')
 def add_truck(request):
@@ -263,7 +263,12 @@ def add_truck(request):
         origin = request.POST.get('origin')
         destination = request.POST.get('destination')
         operator = request.POST.get('operator')
-        contact = request.POST.get('contact')
+        country = request.POST.get('country')
+        company = request.POST.get('company')
+        street = request.POST.get('street')
+        postal_code = request.POST.get('postal_code')
+        city = request.POST.get('city')
+        phone_number = request.POST.get('phone_number')
         e = Truck()
         e.day = day
         e.departure_time = departure_time
@@ -272,7 +277,12 @@ def add_truck(request):
         e.origin = origin
         e.destination = destination
         e.operator = operator
-        e.contact = contact
+        e.country = country
+        e.company = company
+        e.street = street
+        e.postal_code = postal_code
+        e.city = city
+        e.phone_number = phone_number
         e.save()
 
         return redirect('/alltrucks')
@@ -294,7 +304,12 @@ def update_truck(request, id):
         origin = request.POST.get('origin')
         destination = request.POST.get('destination')
         operator = request.POST.get('operator')
-        contact = request.POST.get('contact')
+        country = request.POST.get('country')
+        company = request.POST.get('company')
+        street = request.POST.get('street')
+        postal_code = request.POST.get('postal_code')
+        city = request.POST.get('city')
+        phone_number = request.POST.get('phone_number')
 
 
         if not departure_time:
@@ -308,7 +323,12 @@ def update_truck(request, id):
         truck.origin = origin
         truck.destination = destination
         truck.operator = operator
-        truck.contact = contact
+        truck.country = country
+        truck.company = company
+        truck.street = street
+        truck.postal_code = postal_code
+        truck.city = city
+        truck.phone_number = phone_number
         truck.save()
 
         return redirect('alltrucks')

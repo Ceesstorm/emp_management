@@ -6,11 +6,14 @@ django-countries==7.6.1
 django-crispy-forms==2.3
 django-jazzmin==3.0.1
 django-phonenumber-field==8.0.0
+gunicorn==23.0.0
 mysql==0.0.3
 mysql-connector==2.2.9
 mysql-connector-python==9.1.0
 mysqlclient==2.2.5
+packaging==24.1
 phonenumbers==8.13.48
+pillow==11.0.0
 sqlparse==0.5.1
 typing_extensions==4.12.2
 tzdata==2024.2

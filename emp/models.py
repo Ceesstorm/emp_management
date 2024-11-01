@@ -22,7 +22,13 @@ class Truck(models.Model):
     origin = models.CharField(max_length=100)
     destination = models.CharField(max_length=100)
     operator = models.CharField(max_length=100)
-    contact = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+    company = models.CharField(max_length=100)
+    street = models.CharField(max_length=100)
+    postal_code = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=100)
+    
 
     def __str__(self):
         return self.truck_number

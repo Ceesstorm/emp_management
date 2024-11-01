@@ -21,8 +21,8 @@ class LoginForm(AuthenticationForm):
 # Truck form
 class TruckForm(forms.ModelForm):
     class Meta:
-        model = models.Truck(forms.ModelForm)
-        fields = ['day', 'departure_time', 'tender', 'truck_number', 'origin', 'destination', 'operator', 'contact']
+        model = models.Truck
+        fields = ['day', 'departure_time', 'tender', 'truck_number', 'origin', 'destination', 'operator', 'country', 'company', 'street', 'city', 'postal_code', 'city', 'phone_number']
         widgets = {
             'departure_time': forms.TimeInput(format='%H:%M', attrs={
                 'class': 'form-control',
@@ -30,6 +30,8 @@ class TruckForm(forms.ModelForm):
             }),
         }
 
+    
+    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['departure_time'].input_formats = ['%H:%M']
@@ -37,7 +39,7 @@ class TruckForm(forms.ModelForm):
 class AddTruckForm(forms.ModelForm):
     class Meta:
         model = models.Truck
-        fields = ['day', 'departure_time', 'tender', 'truck_number', 'origin', 'destination', 'operator', 'contact']
+        fields = ['day', 'departure_time', 'tender', 'truck_number', 'origin', 'destination', 'operator', 'country', 'company', 'street', 'city', 'postal_code', 'city', 'phone_number']
 
         widgets = {
             'departure_time': forms.TimeInput(format='%H:%M', attrs={

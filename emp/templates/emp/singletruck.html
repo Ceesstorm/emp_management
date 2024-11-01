@@ -9,49 +9,54 @@
 {% endif %}
 
 <hr class="opacity-100">
-    <div class="container">
+<div class="container">
     <h4 class="text-center">Single Truck page.</h4>
-    </div>
-    <hr class="opacity-100">
-    <div class="container card border-primary">
-      <br>
-      <h5 class="text-decoration-underline">Truck</h5>
-    <div>
-        <table class="table border-primary">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Day</th>
-                    <th scope="col">Departure Time</th>
-                    <th scope="col">Truck Number</th>
-                    <th scope="col">Origin</th> 
-                    <th scope="col">Destination</th>
-                    <th scope="col">Operator</th>
-                    <th scope="col">Contact</th>
-                    <th scope="col">Update</th>
-                    <th scope="col">Delete</th>
-                    <th scope="col">Back</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% if singletruck %}
-                <tr>
-                    <td scope="row">{{ singletruck.id }}</td>
-                    <td>{{ singletruck.day }}</td>
-                    <td>{{ singletruck.departure_time|time:"H:i" }}</td>
-                    <td>{{ singletruck.tender }} {{ singletruck.truck_number }}</td>
-                    <td>{{ singletruck.origin }}</td>
-                    <td>{{ singletruck.destination }}</td>
-                    <td>{{ singletruck.operator }}</td>
-                    <td>{{ singletruck.contact }}</td>
-                    <td><a href="{% url 'updatetruck' singletruck.id %}" class="btn btn-sm btn-outline-success">Update</a></td>
-                    <td><a href="{% url 'deletetruck' singletruck.id %}" class="btn btn-sm btn-outline-danger">Delete</a></td>
-                    <td><a href="{% url 'alltrucks' %}" class="btn btn-sm btn-outline-secondary">Back</a></td>
-                </tr>
-                {% endif %}
-            </tbody>
-        </table>
-    </div>
 </div>
+<hr class="opacity-100">
+<br>
+<div class="container d-flex justify-content-between">
+    
+    <!-- Eerste kaart -->
+    <div class="card border-primary mb-3" style="width: 48%;">
+        <div class="card-header bg-primary text-white"><strong>Truck Information</strong></div>
+        <div class="card-body">
+            {% if singletruck %}
+            <h5 class="card-title">Truck Number: {{ singletruck.truck_number }}</h5>
+            <p class="card-text"><strong>Day:</strong> {{ singletruck.day }}</p>
+            <p class="card-text"><strong>Departure Time:</strong> {{ singletruck.departure_time|time:"H:i" }}</p>
+            <p class="card-text"><strong>Origin:</strong> {{ singletruck.origin }}</p>
+            <p class="card-text"><strong>Destination:</strong> {{ singletruck.destination }}</p>
+            <p class="card-text"><strong>Operator:</strong> {{ singletruck.operator }}</p>
+            {% endif %}
+            <div class="d-flex justify-content-between mt-3">
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Tweede kaart -->
+    <div class="card border-primary mb-3" style="width: 48%;">
+        <div class="card-header bg-primary text-white""><strong>Company Information</strong></div>
+        <div class="card-body">
+            {% if singletruck %}
+            
+            <p class="card-text"><strong>Company:</strong> {{ singletruck.company }}</p>
+            <p class="card-text"><strong>Street:</strong> {{ singletruck.street }}</p>
+            <p class="card-text"><strong>Postal Code:</strong> {{ singletruck.postal_code }}</p>
+            <p class="card-text"><strong>City:</strong> {{ singletruck.city }}</p>
+            <p class="card-text"><strong>Phone Number:</strong> {{ singletruck.phone_number }}</p>
+            {% endif %}
+            </div>
+        </div>
+        
+</div>
+<span class="mb-3 py-3">
+            <hr class="opacity-50">
+            <a href="{% url 'alltrucks' %}" class="btn btn-sm btn-outline-secondary">Back</a>
+            <a href="{% url 'updatetruck' singletruck.id %}" class="btn btn-sm btn-outline-success">Update</a>
+            <a href="{% url 'deletetruck' singletruck.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+
+            <hr class="opacity-50">
+        </span>
 
 {% endblock %}
